@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "les1"
+  "defaultProject": "les1",
+  "cli": {
+    "analytics": "e331e3f3-ea58-43ff-9501-8b3d0e57962e"
+  }
 }
