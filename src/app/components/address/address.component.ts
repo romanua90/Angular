@@ -9,7 +9,6 @@ export class AddressComponent implements OnInit {
 @Input()
   userAddress: any;
   constructor() {
-
   }
 
   ngOnInit(): void {

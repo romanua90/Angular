@@ -1,0 +1,6 @@
+div {
+  display: flex;
+  justify-content:normal;
+  background: yellow;
+  font-weight: unset;
+}

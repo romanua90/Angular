@@ -1,3 +1,4 @@
+<h2 STYLE="background-color: aqua">User List with Addresses:</h2>
 <div *ngFor="let user of users">
-<app-user [user]="user"></app-user> Address:  <app-address [userAddress]="user"></app-address><hr />
+<app-user [user]="user"></app-user>-<app-address [userAddress]="user.address"></app-address>
 </div>
