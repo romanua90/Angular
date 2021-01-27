@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {User} from "../../models/User";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-full-user',
@@ -11,15 +13,18 @@ export class FullUserComponent implements OnInit {
   user;
   id: any;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute,private httpClient: HttpClient) {
     this.activatedRoute.params.subscribe(value => {
-      console.log(value)
-        this.id = value.id;
+        this.id = +(value.id);
+      console.log(this.id)
       }
     )
   }
 
   ngOnInit(): void {
+    this.httpClient.get<User[]>("https://jsonplaceholder.typicode.com/users/"+this.id).subscribe(value=> {
+      this.user = value;
+    })
   }
 
 }
