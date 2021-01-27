@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
+import {User} from "../../models/User";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-users',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-users: any;
-  constructor(users:users) { }
-this.users=users;
+  @Output()
+users: User[];
+  constructor(private httpClient:HttpClient) { }
+
   ngOnInit(): void {
+  this.httpClient.get<User[]>('https://jsonplaceholder.typicode.com/users').subscribe(value=>{
+    this.users=value;
+  });
   }
 
 }
