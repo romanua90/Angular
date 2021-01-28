@@ -1,4 +1,4 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from "../../models/User";
 import {HttpClient} from "@angular/common/http";
 
@@ -8,7 +8,6 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  @Output()
 users: User[];
   constructor(private httpClient:HttpClient) { }
 

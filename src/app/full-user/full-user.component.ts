@@ -10,21 +10,18 @@ import {HttpClient} from "@angular/common/http";
 })
 export class FullUserComponent implements OnInit {
   @Input()
-  user;
-  id: any;
+  user: any;
 
-  constructor(private activatedRoute: ActivatedRoute,private httpClient: HttpClient) {
-    this.activatedRoute.params.subscribe(value => {
-        this.id = +(value.id);
-      console.log(this.id)
-      }
-    )
+  constructor(private activatedRoute: ActivatedRoute, private httpClient: HttpClient) {
+
   }
 
   ngOnInit(): void {
-    this.httpClient.get<User[]>("https://jsonplaceholder.typicode.com/users/"+this.id).subscribe(value=> {
-      this.user = value;
-    })
+    this.activatedRoute.params.subscribe(params => {
+        this.httpClient.get<any>("https://jsonplaceholder.typicode.com/users/" + params.id).subscribe(value => {
+          this.user = value;
+        })
+      }
+    );
   }
-
 }
