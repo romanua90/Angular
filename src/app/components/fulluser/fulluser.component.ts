@@ -9,9 +9,9 @@ import {User} from "../../models/User";
 })
 export class FulluserComponent implements OnInit {
 user: User;
-  constructor(private router: Router) {
+  constructor(private router: Router, private activatedRouter: ActivatedRoute) {
     this.user=this.router.getCurrentNavigation().extras.state as User;
-    // console.log(this.user)
+    console.log(this.user)
   }
 
   ngOnInit(): void {
