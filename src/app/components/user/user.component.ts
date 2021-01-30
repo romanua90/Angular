@@ -17,7 +17,6 @@ user: User;
   }
   goTo(): void{
     this.router.navigate( [this.user.id], {relativeTo: this.activatedRoute, state: this.user})
-    console.log(this.user)
   }
 
 

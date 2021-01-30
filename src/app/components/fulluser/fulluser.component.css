@@ -1,4 +1,6 @@
 .full{
-  background: blue;
+ color: mediumvioletred;
+  font-size: 30px;
   margin-top: 50px;
+  border: solid 5px mediumvioletred;
 }
