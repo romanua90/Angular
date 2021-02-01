@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {UsersComponent} from './components/users/users.component';
@@ -13,11 +12,11 @@ import { PostsComponent } from './components/posts/posts.component';
 import {PostResolveService} from "./services/resolve/post-resolve.service";
 
 const routes: Routes = [
-  {path: '', redirectTo: "users", pathMatch: 'full'},
-  {path: 'users', component: UsersComponent, resolve: {usersData: UserResolveService},
+   // {path: '', redirectTo: "", pathMatch: 'full'},
+  {path: 'link/users', component: UsersComponent, resolve: {usersData: UserResolveService},
   children: [
     {path: ':id', component: FulluserComponent },
-    {path:'users/posts', component: PostsComponent, resolve: {postsData: PostResolveService}}
+    {path:'posts', component: PostsComponent, resolve: {postsData: PostResolveService}}
   ]
   }
 
