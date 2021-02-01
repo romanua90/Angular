@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {User} from "../../models/User";
 import {ActivatedRoute} from "@angular/router";
 
@@ -8,6 +8,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  @Output()
 users: User[];
 
   constructor(private activatedRoute: ActivatedRoute) {

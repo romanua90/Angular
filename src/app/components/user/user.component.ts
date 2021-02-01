@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-@Input()
+  @Input()
 user: User;
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 

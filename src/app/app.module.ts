@@ -10,15 +10,18 @@ import { FulluserComponent } from './components/fulluser/fulluser.component';
 import { PostComponent } from './components/post/post.component';
 import { PostsComponent } from './components/posts/posts.component';
 import {PostResolveService} from "./services/resolve/post-resolve.service";
+import { FullPostComponent } from './components/full-post/full-post.component';
+import {PostsResolveService} from "./services/resolve/posts-resolve.service";
 
 const routes: Routes = [
    // {path: '', redirectTo: "", pathMatch: 'full'},
-  {path: 'link/users', component: UsersComponent, resolve: {usersData: UserResolveService},
+  {path: 'users', component: UsersComponent, resolve: {usersData: UserResolveService},
   children: [
     {path: ':id', component: FulluserComponent },
-    {path:'posts', component: PostsComponent, resolve: {postsData: PostResolveService}}
+    {path:':id/posts', component: FullPostComponent}
   ]
-  }
+  },
+  {path: 'posts', component: PostsComponent, resolve: {postsData: PostsResolveService}}
 
 ];
 
@@ -29,7 +32,8 @@ const routes: Routes = [
     UserComponent,
     FulluserComponent,
     PostComponent,
-    PostsComponent
+    PostsComponent,
+    FullPostComponent
   ],
   imports: [
     BrowserModule,

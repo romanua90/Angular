@@ -1,17 +1,14 @@
-import {Injectable, Input} from '@angular/core';
-import {ActivatedRoute, Resolve, Router} from "@angular/router";
+import { Injectable } from '@angular/core';
 import {Post} from "../../models/Post";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PostService} from "../post/post.service";
 import {Observable} from "rxjs";
-import {log} from "util";
-
 
 @Injectable({
   providedIn: 'root'
 })
-
-export class PostResolveService implements Resolve<Post[]>{
-  post: Post;
+export class PostsResolveService {
+  posts: Post;
 
   constructor(private postService: PostService) {
 
@@ -19,6 +16,7 @@ export class PostResolveService implements Resolve<Post[]>{
 
   resolve(): Observable<Post[]> | Promise<Post[]> | Post[] {
 
-    return this.postService.getPostByUserId(this.post.id);
+    return this.postService.getPosts();
   }
+
 }
