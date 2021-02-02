@@ -1,9 +1,8 @@
-import {Injectable, Input} from '@angular/core';
-import {ActivatedRoute, Resolve, Router} from "@angular/router";
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
 import {Post} from "../../models/Post";
 import {PostService} from "../post/post.service";
 import {Observable} from "rxjs";
-import {log} from "util";
 
 
 @Injectable({
@@ -17,8 +16,8 @@ export class PostResolveService implements Resolve<Post[]>{
 
   }
 
-  resolve(): Observable<Post[]> | Promise<Post[]> | Post[] {
+  resolve(route: ActivatedRouteSnapshot, state:RouterStateSnapshot): Observable<Post[]> | Promise<Post[]> | Post[] {
 
-    return this.postService.getPostByUserId(this.post.id);
+    return this.postService.getPostByUserId(route.parent.params.id);
   }
 }
