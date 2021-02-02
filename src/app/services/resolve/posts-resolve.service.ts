@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Post} from "../../models/Post";
-import {ActivatedRoute, Router} from "@angular/router";
 import {PostService} from "../post/post.service";
 import {Observable} from "rxjs";
 

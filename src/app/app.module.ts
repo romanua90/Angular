@@ -10,7 +10,7 @@ import { FulluserComponent } from './components/fulluser/fulluser.component';
 import { PostComponent } from './components/post/post.component';
 import { PostsComponent } from './components/posts/posts.component';
 import {PostResolveService} from "./services/resolve/post-resolve.service";
-import { FullPostComponent } from './components/full-post/full-post.component';
+import { ChoosenPostsComponent } from './components/choosen-posts/choosen-posts.component';
 import {PostsResolveService} from "./services/resolve/posts-resolve.service";
 
 const routes: Routes = [
@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'users', component: UsersComponent, resolve: {usersData: UserResolveService},
   children: [
     {path: ':id', component: FulluserComponent },
-    {path:':id/posts', component: FullPostComponent}
+    {path:':id/posts', component: ChoosenPostsComponent, resolve: {postData: PostResolveService}}
   ]
   },
   {path: 'posts', component: PostsComponent, resolve: {postsData: PostsResolveService}}
@@ -33,7 +33,7 @@ const routes: Routes = [
     FulluserComponent,
     PostComponent,
     PostsComponent,
-    FullPostComponent
+    ChoosenPostsComponent
   ],
   imports: [
     BrowserModule,

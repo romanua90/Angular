@@ -13,7 +13,6 @@ post: Post;
   constructor(private Router: Router, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
-    this.Router.navigate([this.post.userId], {relativeTo: this.activatedRoute, state: this.post})
   }
 
 }

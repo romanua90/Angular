@@ -17,7 +17,7 @@ export class PostResolveService implements Resolve<Post[]>{
   }
 
   resolve(route: ActivatedRouteSnapshot, state:RouterStateSnapshot): Observable<Post[]> | Promise<Post[]> | Post[] {
+    return this.postService.getPostByUserId(route.params.id)
 
-    return this.postService.getPostByUserId(route.parent.params.id);
   }
 }

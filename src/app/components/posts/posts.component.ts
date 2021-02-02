@@ -9,9 +9,9 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PostsComponent implements OnInit {
   @Output()
-posts: Post[];
-  constructor(private activatedRouter: ActivatedRoute) {
-    this.activatedRouter.data.subscribe(value => this.posts=value.postsData)
+posts: Post;
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.data.subscribe(value => this.posts = value.postsData)
   }
 
   ngOnInit(): void {
